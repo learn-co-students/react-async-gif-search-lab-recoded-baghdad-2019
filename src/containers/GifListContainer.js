@@ -13,7 +13,8 @@ export default class GifListContainer extends React.Component {
         .then(json => {
             this.setState({
                 GifArray: json.data.slice(0, 3)
-            })
+            }
+            )
         })
 }
 
@@ -22,7 +23,7 @@ export default class GifListContainer extends React.Component {
                 <div>
                 <GifSearch Submit={this.Submit} />
                 <GifList GifArr={this.state.GifArr} />
-            </div>
+                </div>
             )
         }
     }
