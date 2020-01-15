@@ -4,7 +4,7 @@ import GifSearch from '../components/GifSearch'
 
 export default class GifListContainer extends React.Component {
     state = {
-        GifArray:[]
+        GifArr:[]
     }
 
     Submit=(type)=>{
@@ -21,7 +21,7 @@ export default class GifListContainer extends React.Component {
             return(
                 <div>
                 <GifSearch Submit={this.Submit} />
-                <GifList GifArray={this.state.GifArray} />
+                <GifList GifArr={this.state.GifArr} />
             </div>
             )
         }
