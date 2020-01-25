@@ -2,33 +2,17 @@
 
 ## Instructions
 
-You're going to be building out a Gif search using the Giphy API. In this lab, 
-there are no tests to pass. Rather, your task is to create a working app in
-your browser using the instructions below. When finished, you should have an
-application that can take in a user's input, fetch JSON data from the Giphy API,
-and display the results. As there are no tests, to register completion, run `learn submit`.
+You're going to be building out a Gif search using the Giphy API. The URL for
+the API is
+
+```js
+`https://api.giphy.com/v1/gifs/search?q=${YOUR QUERY HERE}&api_key=dc6zaTOxFJmzC&rating=g`
+```
 
 ![giphy search](https://raw.githubusercontent.com/learn-co-curriculum/react-async-gif-search-lab/master/async.gif)
 
-## Getting Started
-
-The URL for the API is
-
-`https://api.giphy.com/v1/gifs/search?q=YOUR QUERY HERE&api_key=dc6zaTOxFJmzC&rating=g`
-
-While the above API key _may_ work, we recommend creating your own API key by 
-following the [nstructions on Giphy's developer site][create_key]. Creating a key is free
-and only requires an account. Using your own key will prevent any potential rate limiting if other 
-students are also working on this lesson.
-
-[create_key]: https://developers.giphy.com/docs/api/#quick-start-guide
-
-Once you've got your key, you should be able to access the Giphy API from a browser and receive
-a JSON response to confirm everything is working.
-
-`https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=YOUR API KEY&rating=g`
-
-You should get back an array of objects, each containing information about a particular image.
+On a successful fetch request, you should get back an array of objects, each
+containing information about a particular image.
 
 ```js
   "data": [
@@ -77,11 +61,12 @@ is already provided for you, note the project has bootstrap loaded in) and the
 
 #### `<GifListContainer />`
 
-`<GifListContainer />` should be a container that does data fetching and then renders its corresponding sub-component. That’s it.
+> A container does data fetching and then renders its corresponding sub-component. That’s it.
 
-> If you haven't learned about container vs presentation components yet, don't worry. We'll dig deeper into them soon enough. For now, just know that container components _container_ other components. They themselves usually aren't visibly on the page. Presentational components, on the other hand, are components can you _can_ visibly see on the page (like our `Navbar`).
+- [Container Components](https://medium.com/@learnreact/container-components-c0e67432e005) Learn React with chantastic
+- [Presentational vs Container Componets](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) Dan Abramov
 
-In our app, the `<GifListContainer />` will be responsible for fetching the data
+In our app the `<GifListContainer />` will be responsible for fetching the data
 from the giphy API, storing the first 3 gifs from the response in its component
 **state**, and passing that data down to its child, the `<GifList>` component, as
 a prop.
@@ -108,19 +93,4 @@ event, it should invoke that callback prop with the value of the text input. It
 is this callback function, defined in `<GifListContainer />`, that will actually
 query the API with the text the user has entered.
 
-When finished, submit your work using `learn submit`.
-
 <p class='util--hide'>View <a href='https://learn.co/lessons/react-async-gif-search-lab'>React Async Gif Search Lab</a> on Learn.co and start learning to code for free.</p>
-
-##### Container vs. Presentational Components
-
-- [Container Components](https://medium.com/@learnreact/container-components-c0e67432e005) Learn React with chantastic
-- [Presentational vs Container Componets](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) Dan Abramov
-
-> **Note**: You may notice that Dan Abramov, one of the original proponents of 
-> using Container components, has added a more recent note recommending against them.
-> It is true that there are newer approaches to writing React apps that reduce the
-> need for having components specialize. However, while we're practicing the basics
-> of React, becoming familiar with how components form a tree and pass data from
-> parent to child is highly valuable. For this reason, we'll keep our components
-> separated here.
